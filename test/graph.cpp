@@ -11,7 +11,6 @@ void test_graph(Graph * g){
 	g->addEdge(2,4);
 	g->addEdge(3,4);
 
-	std::cout << "Degree: " << g->getDegree(2) << std::endl;
 	assert(g->getDegree(2) == 3 && "Graph#getDegree()");
 	assert(g->getNodeCount() == 5 && "Graph#getNodeCount()");
 	assert(g->isNeighbor(0,1) && "Graph#isNeighbor() true");
