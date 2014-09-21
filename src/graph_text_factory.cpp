@@ -18,6 +18,7 @@ G* GraphTextFactory<G>::graphFromFile(std::string path) {
     while(file.good()){
       file >> nodeA;
       file >> nodeB;
+      // Our representation starts at 0 index, so subtract 1 here
       graph->addEdge(nodeA-1,nodeB-1);
     }
     file.close();
