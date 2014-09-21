@@ -12,9 +12,8 @@ void ListGraph::addEdge(node_t i, node_t j){
 node_count_t ListGraph::getNodeCount(){
 	return this->nodeCount;
 };
-const std::list<node_t> ListGraph::getNeighbors(node_t){
-	std::list<node_t> list;
-	return list;
+const std::list<node_t> ListGraph::getNeighbors(node_t node){
+	return this->adjacencyList[node];
 };
 bool ListGraph::isNeighbor(node_t i, node_t j){
 	std::list<node_t>::iterator it;

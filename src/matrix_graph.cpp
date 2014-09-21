@@ -18,7 +18,7 @@ node_count_t MatrixGraph::getNodeCount() {
 };
 
 const std::list<node_t> MatrixGraph::getNeighbors(node_t i){
-	std::list<node_t> neighbors(this->getNodeCount());
+	std::list<node_t> neighbors(0);
 	node_count_t j;
 	for(j = 0; j < this->getNodeCount(); j++) {
 		if(this->isNeighbor(i,j)) {
