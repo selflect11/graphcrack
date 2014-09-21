@@ -1,5 +1,4 @@
-#ifndef LIST_GRAPH_H
-#define LIST_GRAPH_H
+#pragma once
 
 #include "graph.h"
 
@@ -15,5 +14,3 @@ public:
   bool isNeighbor(int, int);
   int getDegree(int);
 };
-
-#endif

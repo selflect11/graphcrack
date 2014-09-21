@@ -1,5 +1,4 @@
-#ifndef GRAPH_HPP
-#define GRAPH_HPP
+#pragma once
 
 #include <list>
 class Graph {
@@ -10,5 +9,3 @@ class Graph {
     virtual bool isNeighbor(int, int)=0;
     virtual int getDegree(int)=0;
 };
-
-#endif

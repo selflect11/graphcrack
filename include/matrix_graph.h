@@ -1,5 +1,4 @@
-#ifndef MATRIX_GRAPH_HPP
-#define MATRIX_GRAPH_HPP
+#pragma once
 
 #include "graph.h"
 
@@ -15,5 +14,3 @@ public:
   bool isNeighbor(int, int);
   int getDegree(int);
 };
-
-#endif
