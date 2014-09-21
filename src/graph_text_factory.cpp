@@ -20,6 +20,7 @@ G* GraphTextFactory<G>::graphFromFile(std::string path) {
       file >> nodeB;
       graph->addEdge(nodeA-1,nodeB-1);
     }
+    file.close();
   }
   return graph;
 }
