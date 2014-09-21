@@ -1,7 +1,7 @@
 #include <matrix_graph.h>
 
-MatrixGraph::MatrixGraph(int n) {
-		int i;
+MatrixGraph::MatrixGraph(node_count_t n) {
+		node_count_t i;
 		this->adjacencyMatrix = new int[n*n];
 		for(i = 0; i < n; i++){
 			this->adjacencyMatrix[i] = 0;
@@ -9,17 +9,17 @@ MatrixGraph::MatrixGraph(int n) {
 		this->nodeCount = n;
 	};
 
-void MatrixGraph::addEdge(int i, int j){
+void MatrixGraph::addEdge(node_t i, node_t j){
 	this->adjacencyMatrix[i*this->getNodeCount()+j] = 1;
 };
 
-int MatrixGraph::getNodeCount() {
+node_count_t MatrixGraph::getNodeCount() {
 	return this->nodeCount;
 };
 
-const std::list<int> MatrixGraph::getNeighbors(int i){
-	std::list<int> neighbors(this->getNodeCount());
-	int j;
+const std::list<node_t> MatrixGraph::getNeighbors(node_t i){
+	std::list<node_t> neighbors(this->getNodeCount());
+	node_count_t j;
 	for(j = 0; j < this->getNodeCount(); j++) {
 		if(this->isNeighbor(i,j)) {
 			neighbors.push_back(j);
@@ -28,15 +28,15 @@ const std::list<int> MatrixGraph::getNeighbors(int i){
 	return neighbors;
 };
 
-bool MatrixGraph::isNeighbor(int i, int j) {
+bool MatrixGraph::isNeighbor(node_t i, node_t j) {
 	return 
 		this->adjacencyMatrix[i*this->getNodeCount() + j] > 0
 		|| this->adjacencyMatrix[j*this->getNodeCount() + i] > 0;
 };
 
-int MatrixGraph::getDegree(int i){
+int MatrixGraph::getDegree(node_t i){
 	int degree = 0;
-	int j;
+	node_count_t j;
 
 	for(j = 0; j < this->getNodeCount(); j++){
 		if(this->isNeighbor(i,j)) {
