@@ -26,7 +26,7 @@ test/obj/%.o: test/%.cpp
 	$(CC) $(CC_FLAGS) -c -o $@ $<
 
 test: $(TEST_EXECS)
-	$(foreach test,$(TEST_EXECS),$(test))
+	$(foreach test,$(TEST_EXECS),$(test);)
 .PHONY: test
 
 # Utility
