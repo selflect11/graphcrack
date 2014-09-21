@@ -1,5 +1,6 @@
 CC = g++
-CC_FLAGS = -Wall
+IPATH = include/
+CC_FLAGS = -Wall -I $(IPATH)
 LD_FLAGS = -Wall
 
 TEST_FILES = $(wildcard test/*.cpp)

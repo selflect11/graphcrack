@@ -1,5 +1,5 @@
-#include "../src/matrix_graph.h"
-#include "../src/list_graph.h"
+#include <matrix_graph.h>
+#include <list_graph.h>
 #include <assert.h>
 #include <iostream>
 

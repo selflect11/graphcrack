@@ -1,4 +1,4 @@
-#include "matrix_graph.h"
+#include <matrix_graph.h>
 
 MatrixGraph::MatrixGraph(int n) {
 		int i;

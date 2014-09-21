@@ -1,4 +1,4 @@
-#include "list_graph.h"
+#include <list_graph.h>
 
 ListGraph::ListGraph(int n){
 	this->adjacencyList = new std::list<int>[n];
