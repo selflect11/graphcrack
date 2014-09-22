@@ -5,6 +5,8 @@ ConnectedComponentsFinder::ConnectedComponentsFinder(Graph * g) : BFS(g){
     this->remaining.insert(i);
   }
 
+  GraphSearch::initialize();
+
   while(!this->remaining.empty()) {
     this->makeComponent();
     this->search(*this->remaining.begin());
