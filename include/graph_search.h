@@ -1,10 +1,13 @@
 #pragma once
 
-#include <graph_search.h>
-#include <stack>
+#include <graph.h>
+#include <spanning_tree.h>
+#include <search_marking.h>
 
-class DFS : public GraphSearch {
-  std::stack<node_t> * stack;
+class GraphSearch {
+protected:
+  SearchMarking * marks;
+  Graph * graph;
   virtual void initialize();
   virtual node_t getNextNode();
   virtual void finalize();
@@ -12,5 +15,6 @@ class DFS : public GraphSearch {
   virtual bool hasDiscoveredNodes();
   virtual bool haveFather(node_t);
 public:
-  DFS(Graph*);
+  GraphSearch(Graph*);
+  SpanningTree search(node_t);
 };

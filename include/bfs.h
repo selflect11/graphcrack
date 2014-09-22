@@ -1,11 +1,16 @@
 #pragma once
 
-#include <graph.h>
-#include <spanning_tree.h>
+#include <graph_search.h>
+#include <queue>
 
-class BFS {
-  Graph * graph;
+class BFS : public GraphSearch {
+protected:
+  std::queue<node_t> * queue;
+  virtual void initialize();
+  virtual node_t getNextNode();
+  virtual void finalize();
+  virtual void discover(node_t);
+  virtual bool hasDiscoveredNodes();
 public:
   BFS(Graph*);
-  SpanningTree search(node_t);
 };
