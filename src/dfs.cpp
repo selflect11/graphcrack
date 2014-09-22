@@ -1,40 +1,29 @@
 #include <dfs.h>
-#include <search_marking.h>
-#include <stack>
 
-DFS::DFS(Graph* graph){
-  this->graph = graph;
+DFS::DFS(Graph* g) : GraphSearch(g) { };
+
+void DFS::initialize(){
+  this->stack = new std::stack<node_t>();
 }
 
-SpanningTree DFS::search(node_t start){
-  // Search related
-  std::stack<node_t> * stack;
-  SearchMarking marks(this->graph->getNodeCount());
-  SpanningTree st(this->graph->getNodeCount());
+bool DFS::hasDiscoveredNodes(){
+  return this->stack->size();
+}
 
-  // Helper variables
-  node_t current;
-  std::list<node_t> neighbors;
-  std::list<node_t>::iterator it;
+node_t DFS::getNextNode(){
+  node_t current = this->stack->top();
+  this->stack->pop();
+  return current;
+}
 
-  marks.setAll(undiscovered);
-  stack = new std::stack<node_t>();
-  stack->push(start);
+void DFS::discover(node_t node){
+  this->stack->push(node);
+}
 
-  while(!stack->empty()) {
-    current = stack->top();
-    stack->pop();
-    if(marks.is(current, undiscovered)){
-      marks.set(current,discovered);
-      neighbors = this->graph->getNeighbors(current);
-      for(it = neighbors.begin(); it != neighbors.end(); it++){
-        if(marks.is(*it,undiscovered)){
-          st.setFather(*it,current);
-        }
-        stack->push(*it);
-      }
-    }
-  }
-  delete stack;
-  return st;
+void DFS::finalize() {
+  delete this->stack;
+}
+
+bool DFS::haveFather(node_t node){
+  return !this->marks->is(node, explored);
 }
