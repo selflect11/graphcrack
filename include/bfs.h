@@ -1,11 +1,12 @@
 #pragma once
 
 #include <graph_search.h>
-#include <queue>
+#include <vector>
 
 class BFS : public GraphSearch {
 protected:
-  std::queue<node_t> * queue;
+  std::vector<node_t> * vector;
+  int idx;
   virtual void initialize();
   virtual node_t getNextNode();
   virtual void finalize();
