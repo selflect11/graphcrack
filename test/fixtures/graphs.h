@@ -21,7 +21,7 @@ G test_graph_not_connected(){
 
 template<typename G>
 G test_graph_dfs(){
-  G g(6);
+  G g(8);
   g.addEdge(0,1);
   g.addEdge(1,2);
   g.addEdge(2,3);
