@@ -3,6 +3,7 @@
 BFS::BFS(Graph* g) : GraphSearch(g) { };
 
 void BFS::initialize(){
+	GraphSearch::initialize();
   this->queue = new std::queue<node_t>();
 }
 

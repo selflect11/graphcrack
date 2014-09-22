@@ -11,6 +11,10 @@ ConnectedComponentsFinder::ConnectedComponentsFinder(Graph * g) : BFS(g){
   }
 }
 
+void ConnectedComponentsFinder::initialize(){
+  //No-op - Avoid reseting markation
+}
+
 void ConnectedComponentsFinder::makeComponent(){
   this->connectedComponents.push_back(new ConnectedComponent());
 }

@@ -14,6 +14,7 @@ private:
   // For now i think it's a good approach but we may replace it with our own optimized set.
   std::unordered_set<node_t> remaining;
   virtual void discover(node_t);
+  virtual void initialize();
   void makeComponent();
 public:
   std::list<ConnectedComponent*> connectedComponents;

@@ -3,6 +3,7 @@
 DFS::DFS(Graph* g) : GraphSearch(g) { };
 
 void DFS::initialize(){
+	GraphSearch::initialize();
   this->stack = new std::stack<node_t>();
 }
 

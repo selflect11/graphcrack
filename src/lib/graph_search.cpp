@@ -10,7 +10,6 @@ SpanningTree GraphSearch::search(node_t start){
   std::list<node_t> neighbors;
   std::list<node_t>::iterator it;
   this->initialize();
-  this->marks->setAll(undiscovered);
   this->discover(start);
   this->marks->set(start,discovered);
 
@@ -36,6 +35,7 @@ SpanningTree GraphSearch::search(node_t start){
 }
 
 void GraphSearch::initialize(){
+  this->marks->setAll(undiscovered);
 }
 
 void GraphSearch::finalize(){
