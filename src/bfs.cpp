@@ -1,4 +1,5 @@
 #include <bfs.h>
+#include <search_marking.h>
 #include <queue>
 
 BFS::BFS(Graph* graph){
@@ -6,17 +7,19 @@ BFS::BFS(Graph* graph){
 }
 
 SpanningTree BFS::search(node_t start){
-  node_t current;
+  // Search related
   std::queue<node_t> * queue;
-  std::list<node_t> neighbors;
-  std::list<node_t>::iterator it;
+  SearchMarking marks(this->graph->getNodeCount());
   SpanningTree st(this->graph->getNodeCount());
 
+  // Helper variables
+  node_t current;
+  std::list<node_t> neighbors;
+  std::list<node_t>::iterator it;
 
+  marks.setAll(undiscovered);
+  marks.set(start,discovered);
   queue = new std::queue<node_t>();
-  this->marks = new mark_t[this->graph->getNodeCount()];
-  this->mark_all_as(undiscovered);
-  this->marks[start] = discovered;
   queue->push(start);
 
   while(!queue->empty()) {
@@ -24,8 +27,8 @@ SpanningTree BFS::search(node_t start){
     queue->pop();
     neighbors = this->graph->getNeighbors(current);
     for(it = neighbors.begin(); it != neighbors.end(); it++){
-      if(marks[*it] == undiscovered){
-        marks[*it] = discovered;
+      if(marks.is(*it, undiscovered)){
+        marks.set(*it,discovered);
         st.setFather(*it,current);
         queue->push(*it);
       }
@@ -33,10 +36,4 @@ SpanningTree BFS::search(node_t start){
   }
   delete queue;
   return st;
-}
-
-void BFS::mark_all_as(mark_t mark){
-  for(node_count_t i = 0; i < this->graph->getNodeCount(); i++){
-    marks[i] = mark;
-  }
 }
