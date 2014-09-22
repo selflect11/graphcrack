@@ -6,16 +6,16 @@
 
 class Searches : public Program {
 public:
-  void run_search(string name, GraphSearch &search) {
+  void run_search(std::string name, GraphSearch *search) {
     clock_t begin;
     clock_t end;
     double elapsed_secs;
     begin = clock();
     for(node_count_t i = 0; i < 10; i++){
-      SpanningTree st = search.search(i);
+      SpanningTree st = search->search(i);
       if(i < 5) {
         for(int j = 1; j < 6; j++) {
-          std::cout << name << "(" << i << "): " << j*10 << " filho de " st.getFather(j*10) << std::endl;
+          std::cout << name << "(" << i << "): " << j*10 << " filho de " << st.getFather(j*10) << std::endl;
         }
       }
     }
@@ -25,11 +25,11 @@ public:
   }
   virtual int run(Graph * graph){
     // Pause para medir
-    BFS bfs(graph);
-    DFS dfs(graph);
+    GraphSearch * bfs = new BFS(graph);
+    GraphSearch * dfs = new DFS(graph);
 
-    this->run_search(bfs);
-    this->run_search(dfs);
+    this->run_search("BFS",bfs);
+    this->run_search("DFS",dfs);
 
     return OK;
   }
