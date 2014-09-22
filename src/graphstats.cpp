@@ -14,6 +14,7 @@ int processStatistics(Graph * graph){
   std::cout << "# n = " << stats.nodeCount << std::endl;
   std::cout << "# m = " << stats.edgeCount << std::endl;
   std::cout << "# d_medio = " << stats.averageDegree << std::endl;
+  std::cout << "# d_max = " << stats.maxDegree << std::endl;
   for(it = stats.degreeDistribution.begin(); it != stats.degreeDistribution.end(); it++){
     std::cout << it - stats.degreeDistribution.begin() + 1 << " " << *it << std::endl;
   }

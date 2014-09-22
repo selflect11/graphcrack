@@ -9,5 +9,6 @@ public:
   float averageDegree;
   std::vector<float> degreeDistribution;
   int nodeCount;
+  int maxDegree;
   int edgeCount;
 };
