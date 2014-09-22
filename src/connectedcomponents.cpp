@@ -1,4 +1,5 @@
 #include <program.h>
+#include <connected_components_finder.h>
 
 class GraphStats : public Program {
 public:
