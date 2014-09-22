@@ -9,3 +9,12 @@ G test_graph_5(){
 	g.addEdge(3,4);
   return g;
 }
+
+template<typename G>
+G test_graph_not_connected(){
+  G g(6);
+  g.addEdge(0,1);
+  g.addEdge(1,2);
+  g.addEdge(3,4);
+  return g;
+}

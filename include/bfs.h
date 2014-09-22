@@ -4,6 +4,7 @@
 #include <queue>
 
 class BFS : public GraphSearch {
+protected:
   std::queue<node_t> * queue;
   virtual void initialize();
   virtual node_t getNextNode();
