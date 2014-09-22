@@ -2,8 +2,8 @@
 
 #include <list>
 
-typedef unsigned long node_count_t;
-typedef unsigned long node_t;
+typedef long node_count_t;
+typedef long node_t;
 
 class Graph {
   public:

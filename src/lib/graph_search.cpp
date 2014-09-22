@@ -2,7 +2,6 @@
 
 GraphSearch::GraphSearch(Graph* g) : graph(g) {
   this->marks = new SearchMarking(this->graph->getNodeCount());
-  this->marks->setAll(undiscovered);
 }
 
 SpanningTree GraphSearch::search(node_t start){
@@ -11,6 +10,7 @@ SpanningTree GraphSearch::search(node_t start){
   std::list<node_t> neighbors;
   std::list<node_t>::iterator it;
   this->initialize();
+  this->marks->setAll(undiscovered);
   this->discover(start);
   this->marks->set(start,discovered);
 

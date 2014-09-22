@@ -1,7 +1,7 @@
 CC = g++
 IPATH = include/
-CC_FLAGS = -Wall -std=c++11 -I $(IPATH) $(FLAGS)
-LD_FLAGS = -Wall
+CC_FLAGS = -Wall -O2 -std=c++11 -lstdc++ -I $(IPATH) $(FLAGS)
+LD_FLAGS = -Wall -lstdc++
 
 TEST_FILES = $(wildcard test/*.cpp)
 TEST_OBJS = $(addprefix test/obj/,$(notdir $(TEST_FILES:.cpp=.o)))
@@ -18,10 +18,10 @@ all: test $(EXECS)
 # Executables
 
 bin/%: obj/%.o $(LIB_OBJS)
-	$(CC) $(LD_FLAGS) -o $@ $< $(LIB_OBJS)
+	$(CC) $(LD_FLAGS) -o $@ $< $(LIB_OBJS) -pthread
 
 obj/%.o: src/%.cpp
-	$(CC) $(CC_FLAGS) -c -o $@ $<
+	$(CC) $(CC_FLAGS) -c -o $@ $< -pthread
 
 # Lib
 
