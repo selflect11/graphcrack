@@ -1,10 +1,11 @@
 #pragma once
 
 #include "graph.h"
+#include <vector>
 
 class MatrixGraph : public Graph {
 private:
-	unsigned char * adjacencyMatrix;
+	std::vector<bool> adjacencyMatrix;
 	node_count_t nodeCount;
 public:
   MatrixGraph(node_count_t);

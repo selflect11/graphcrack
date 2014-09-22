@@ -2,15 +2,15 @@
 
 MatrixGraph::MatrixGraph(node_count_t n) {
 		node_count_t i;
-		this->adjacencyMatrix = new unsigned char[n*n];
+		this->adjacencyMatrix.resize(n*n);
 		for(i = 0; i < n; i++){
-			this->adjacencyMatrix[i] = 0;
+			this->adjacencyMatrix.at(i)=0;
 		}
 		this->nodeCount = n;
 	};
 
 void MatrixGraph::addEdge(node_t i, node_t j){
-	this->adjacencyMatrix[i*this->getNodeCount()+j] = 1;
+	this->adjacencyMatrix.at(i*this->getNodeCount()+j) = 1;
 };
 
 node_count_t MatrixGraph::getNodeCount() {
