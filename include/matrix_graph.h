@@ -4,7 +4,7 @@
 
 class MatrixGraph : public Graph {
 private:
-	int * adjacencyMatrix;
+	unsigned char * adjacencyMatrix;
 	node_count_t nodeCount;
 public:
   MatrixGraph(node_count_t);

@@ -24,7 +24,6 @@ public:
     std::cout << "Tempo 10 " << name << ": " << elapsed_secs << std::endl;
   }
   virtual int run(Graph * graph){
-    // Pause para medir
     GraphSearch * bfs = new BFS(graph);
     GraphSearch * dfs = new DFS(graph);
 

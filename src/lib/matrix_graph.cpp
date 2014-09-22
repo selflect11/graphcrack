@@ -2,7 +2,7 @@
 
 MatrixGraph::MatrixGraph(node_count_t n) {
 		node_count_t i;
-		this->adjacencyMatrix = new int[n*n];
+		this->adjacencyMatrix = new unsigned char[n*n];
 		for(i = 0; i < n; i++){
 			this->adjacencyMatrix[i] = 0;
 		}
