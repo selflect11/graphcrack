@@ -7,6 +7,9 @@
 class Searches : public Program {
 public:
   void run_search(string name, GraphSearch &search) {
+    clock_t begin;
+    clock_t end;
+    double elapsed_secs;
     begin = clock();
     for(node_count_t i = 0; i < 10; i++){
       SpanningTree st = search.search(i);
@@ -21,9 +24,6 @@ public:
     std::cout << "Tempo 10 " << name << ": " << elapsed_secs << std::endl;
   }
   virtual int run(Graph * graph){
-    clock_t begin;
-    clock_t end;
-    double elapsed_secs;
     // Pause para medir
     BFS bfs(graph);
     DFS dfs(graph);
