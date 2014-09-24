@@ -14,7 +14,7 @@ ConnectedComponentsFinder::ConnectedComponentsFinder(Graph * g) : BFS(g){
 }
 
 void ConnectedComponentsFinder::initialize(){
-  //No-op - Avoid reseting markation
+  this->queue = new std::queue<node_t>();
 }
 
 void ConnectedComponentsFinder::makeComponent(){
