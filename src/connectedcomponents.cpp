@@ -8,7 +8,7 @@ public:
     std::cout << "No CC: " << ccf.connectedComponents.size() << std::endl;
     ConnectedComponent * bigger = ccf.connectedComponents.front();
     ConnectedComponent * smaller = ccf.connectedComponents.front();
-    std::list<ConnectedComponent*>::iterator it;
+    std::vector<ConnectedComponent*>::iterator it;
     for(it = ccf.connectedComponents.begin(); it != ccf.connectedComponents.end(); it++) {
       if((*it)->size() > bigger->size()) {
         bigger = (*it);
