@@ -6,7 +6,7 @@
 #include "fixtures/graphs.h"
 
 int main(){
-  std::list<ConnectedComponent*>::iterator it;
+  std::vector<ConnectedComponent*>::iterator it;
   ListGraph graph = test_graph_not_connected<ListGraph>();
   std::cout << "Testing Connected Components" << std::endl;
   ConnectedComponentsFinder ccf(&graph);
