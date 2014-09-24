@@ -4,7 +4,7 @@
 #include <list>
 #include <unordered_set>
 
-typedef std::list<node_t> ConnectedComponent;
+typedef std::vector<node_t> ConnectedComponent;
 
 class ConnectedComponentsFinder : protected BFS {
 private:
@@ -17,6 +17,6 @@ private:
   virtual void initialize();
   void makeComponent();
 public:
-  std::list<ConnectedComponent*> connectedComponents;
+  std::vector<ConnectedComponent*> connectedComponents;
   ConnectedComponentsFinder(Graph*);
 };
